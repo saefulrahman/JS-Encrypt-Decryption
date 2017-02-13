@@ -2,6 +2,23 @@
   <head>
     <title>JavaScript Encryption & Decryption</title>
   <style type='text/css'>
+    /* fonts */
+/* latin */
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 400; src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;} 
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 700; src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U +F000; }
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 500; src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v15/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;}
+
+/* latin-ext */
+@font-face { font-family: 'Roboto Slab'; font-style: normal; font-weight: 400; src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'), url(https://fonts.gstatic.com/s/robotoslab/v6/y7lebkjgREBJK96VQi37ZiYE0-AqJ3nfInTTiDXDjU4.woff2) format('woff2'); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+/* latin */
+@font-face { font-family: 'Roboto Slab'; font-style: normal; font-weight: 400; src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'), url(https://fonts.gstatic.com/s/robotoslab/v6/y7lebkjgREBJK96VQi37Zo4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+
+/* latin */
+@font-face { font-family: 'Righteous'; font-style: normal; font-weight: 400; src: local('Righteous'), local('Righteous-Regular'), url(https://fonts.gstatic.com/s/righteous/v5/w5P-SI7QJQSDqB3GziL8XVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+@font-face { font-family: 'Material Icons'; font-style: normal; font-weight: 400; src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v18/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2'); } .md-icons { font-family: 'Material Icons'; font-weight: normal; font-style: normal; font-size: 1.5em; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; vertical-align: middle; -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; } .md-icons.md-18 { font-size: 1.125em; } .md-icons.md-24 { font-size: 1.5em; } .md-icons.md-36 { font-size: 2.25em; } .md-icons.md-48 { font-size: 3.000em; } .md-icons.md-dark { color: rgba(0, 0, 0, 0.54); } .md-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); } .md-icons.md-light { color: rgba(255, 255, 255, 1); } .md-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+body { font: normal normal 16px 'Roboto', Helvetica, Arial, sans-serif; font-size:100%; line-height:1.42857143; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-touch-callout: none; background-attachment: fixed; background-position: top center; background-image : url(//2.bp.blogspot.com/-fJs1aoKDV1k/WA6E2oqvO-I/AAAAAAAAgOw/tJKg5pixoU8UdlGbSF56mA4LVg9DLqq8gCK4B/s0/white_wall.png); background-color: #f9f9f9; color:#3b3b3b; }
   code,kbd,pre,samp{ font-family: Menlo,Monaco,Consolas,"Courier New",monospace; font-size:0.9em }
 code { padding:2px 4px; color:#c7254e; background-color:#f9f2f4; border-radius: 0.125em; }
 pre { display:block; padding: 9.5px; margin:0 0 0.10px; font-size: 0.875em; line-height: 1.428;  color:#333; word-break:break-all; word-wrap:break-word; background-color: #efefef; border:1px solid #eee; border-radius:0.125em; } pre code{ padding:0; font-size:inherit; color:inherit; white-space:pre-wrap; background-color:transparent; border-radius:0; } pre { max-height: 32em; overflow: auto; }
